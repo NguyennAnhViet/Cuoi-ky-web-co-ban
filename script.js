@@ -170,7 +170,7 @@ const Auth = {
       Storage.setString(STORAGE_KEYS.LOGGED_IN_USER, userData.lienLac);
       Auth.updateAccountMenu();
       UI.closeForms();
-      window.location.href = 'dulich.html';
+      window.location.href = 'index.html';
     } else {
       Utils.showAlert('Sai thông tin đăng nhập.');
     }
@@ -178,7 +178,7 @@ const Auth = {
 
   logout: () => {
     Storage.remove(STORAGE_KEYS.LOGGED_IN_USER);
-    window.location.href = 'dulich.html';
+    window.location.href = 'index.html';
   },
 
   updateAccountMenu: () => {

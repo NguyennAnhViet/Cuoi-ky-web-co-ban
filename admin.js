@@ -543,13 +543,13 @@ function checkAdminAccess() {
     
     if (!loggedInUser || !userData) {
         alert('⚠️ Vui lòng đăng nhập để truy cập!');
-        window.location.href = 'Dulich.html';
+        window.location.href = 'index.html';
         return false;
     }
     
     if (userData.role !== 'admin') {
         alert('⚠️ Bạn không có quyền truy cập trang này!\n\nChỉ Admin mới có thể truy cập Dashboard.');
-        window.location.href = 'Dulich.html';
+        window.location.href = 'index.html';
         return false;
     }
     
@@ -573,7 +573,7 @@ function logout() {
         localStorage.removeItem('userData');
         showNotification('👋 Đã đăng xuất thành công!', 'success');
         setTimeout(() => {
-            window.location.href = 'Dulich.html';
+            window.location.href = 'index.html';
         }, 1000);
     }
 }

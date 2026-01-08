@@ -88,7 +88,7 @@ function exportBookings() {
 function logout() {
     if (confirm('Bạn có chắc muốn đăng xuất?')) {
         localStorage.removeItem('nguoiDungDangNhap');
-        window.location.href = 'Dulich.html';
+        window.location.href = 'index.html';
     }
 }
 
@@ -117,7 +117,7 @@ function checkAdminAccess() {
 
     if (!loggedInUser || !userData || userData.role !== 'admin') {
         alert('Bạn không có quyền truy cập trang này!');
-        window.location.href = 'Dulich.html';
+        window.location.href = 'index.html';
         return false;
     }
 
