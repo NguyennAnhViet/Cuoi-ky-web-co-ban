@@ -1,0 +1,482 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Banner slideshow */
+.tours-hero {
+  position: relative;
+  width: 100%;
+  height: 300px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin: 20px auto;
+  max-width: 1200px;
+}
+
+.slideshow {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity 1s ease-in-out;
+}
+
+.slide.active {
+  opacity: 1;
+}
+
+/* Tour Hot Trong Tháng */
+.tours-hot {
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.tours-hot h2 {
+  font-size: 2rem;
+  color: #004d40;
+  margin-bottom: 20px;
+}
+
+.danh-sach-tour-hot {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  display: inline-block;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.danh-sach-tour-hot .phieu-tour {
+  height: 480px;
+}
+
+.danh-sach-tour-hot .gia-tour {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+  overflow: hidden;
+  height: 70px;
+  line-height: 50px; /* Căn giữa theo chiều dọc */
+}
+
+.danh-sach-tour-hot .gia-tour span {
+  font-weight: 700;
+  color: #ff5722;
+  font-size: 18px;
+  line-height: normal;
+  float: left;
+}
+
+.danh-sach-tour-hot .gia-tour a.dat-ngay,
+.danh-sach-tour-hot .gia-tour a.xem-chi-tiet {
+  background-color: #ff5722;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  line-height: normal;
+  float: right;
+}
+
+.danh-sach-tour-hot .gia-tour a.xem-chi-tiet {
+  background-color: #004d40;
+}
+
+.danh-sach-tour-hot .gia-tour a.dat-ngay:hover {
+  background-color: #e64a19;
+}
+
+.danh-sach-tour-hot .gia-tour a.xem-chi-tiet:hover {
+  background-color: #00332a;
+}
+
+/* Danh Sách Tours */
+.danh-sach-tour {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
+  text-align: center;
+  font-size: 0;
+  white-space: nowrap;
+  overflow-x: auto;
+  padding-bottom: 20px;
+}
+
+.danh-sach-tour h2 {
+  font-size: 2rem;
+  color: #004d40;
+  margin-bottom: 20px;
+}
+
+.dai-han,
+.ngan-han {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 10px 0;
+  display: block;
+  width: 100%;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+
+.dai-han h3,
+.ngan-han h3 {
+  font-size: 1.5rem;
+  color: #004d40;
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+
+
+/* Style chung cho phieu-tour */
+.phieu-tour {
+  background-color: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.12);
+  width: 320px;
+  max-width: 100%;
+  overflow: hidden;
+  display: inline-block;
+  vertical-align: top;
+  transition: transform 0.3s ease;
+  cursor: pointer;
+  margin: 10px;
+  font-size: initial;
+  text-align: left;
+  white-space: normal;
+  height: 480px;
+  position: relative;
+}
+
+.phieu-tour:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.2);
+}
+
+.phieu-tour img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-bottom: 1px solid #ddd;
+}
+
+.thong-tin-tour {
+  padding: 20px;
+  height: 160px;
+  word-wrap: break-word;
+  overflow: hidden;
+}
+
+.thong-tin-tour h3 {
+  margin-bottom: 12px;
+  font-size: 18px;
+  color: #004d40;
+  min-height: 40px;
+}
+
+.thong-tin-tour p {
+  margin-bottom: 12px;
+  font-size: 15px;
+  color: #555;
+  min-height: 20px;
+}
+
+.tieu-de-tour {
+  margin-bottom: 12px;
+  overflow: hidden; /* Giữ để xử lý các trường hợp khác nếu cần */
+}
+
+.tieu-de-tour .left-content {
+  display: block; /* Xếp thành khối, tự động xuống dòng */
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+}
+
+.tieu-de-tour .right-content {
+  display: block; /* Xếp thành khối, tự động xuống dòng */
+  width: 100%; /* Chiếm toàn bộ chiều rộng */
+  text-align: left; /* Có thể tùy chỉnh thành right nếu cần */
+}
+
+.gia-tour {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px;
+  background-color: #fff;
+  border-top: 1px solid #eee;
+  box-sizing: border-box;
+  overflow: hidden;
+  line-height: 50px; /* Căn giữa theo chiều dọc */
+}
+
+.gia-tour span {
+  font-weight: 700;
+  color: #ff5722;
+  font-size: 18px;
+  line-height: normal;
+  float: left;
+}
+
+.gia-tour a.dat-ngay,
+.gia-tour a.xem-chi-tiet {
+  background-color: #ff5722;
+  color: #fff;
+  padding: 8px 16px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+ 
+  line-height: normal;
+  float: right;
+  margin-left: 10px;
+}
+
+.gia-tour a.xem-chi-tiet {
+  background-color: #004d40;
+  margin-left: 10px;
+}
+
+.gia-tour a.dat-ngay:hover {
+  background-color: #e64a19;
+}
+
+.gia-tour a.xem-chi-tiet:hover {
+  background-color: #00332a;
+}
+
+
+/* Modal xem chi tiết */
+#chiTietTour.hop-thoai {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+#chiTietTour .noi-dung-hop-thoai {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 12px;
+  width: 500px;
+  max-width: 90%;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%); /* Căn giữa thay cho Flexbox */
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+#chiTietTour .noi-dung-hop-thoai h2 {
+  color: #004d40;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+#chiTietTour .noi-dung-hop-thoai p {
+  margin-bottom: 10px;
+  line-height: 1.5;
+}
+
+#chiTietTour .noi-dung-hop-thoai span {
+  font-weight: 500;
+}
+
+#chiTietTour .noi-dung-hop-thoai .dong-lai {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 20px;
+  cursor: pointer;
+  color: #333;
+}
+
+#chiTietTour .noi-dung-hop-thoai button#dongModalChiTiet {
+  background-color: #004d40;
+  color: #fff;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+  width: 100%;
+  margin-top: 20px;
+  transition: background-color 0.3s ease;
+}
+
+#chiTietTour .noi-dung-hop-thoai button#dongModalChiTiet:hover {
+  background-color: #00332a;
+}
+
+/* Phần cuối (Liên hệ) */
+.phan-cuoi {
+  background-color: #fff;
+  padding: 20px;
+  border-top: 2px solid #2e7d32;
+  text-align: center;
+  margin-top: 20px;
+}
+
+.noi-dung-phan-cuoi {
+  max-width: 1200px;
+  margin: 0 auto;
+  overflow: hidden;
+  text-align: left;
+}
+
+.ben-trai,
+.ben-phai {
+  min-width: 300px;
+  width: 48%;
+  float: left;
+  margin-right: 2%;
+}
+
+.ben-phai {
+  margin-right: 0;
+  float: right;
+}
+
+.ben-trai p {
+  margin: 5px 0;
+  font-size: 14px;
+}
+
+.ben-trai a {
+  color: #004d40;
+  text-decoration: none;
+}
+
+.ben-trai a:hover {
+  text-decoration: underline;
+}
+
+/* Các icon mạng xã hội */
+.icons img {
+  width: 30px;
+  height: 30px;
+  margin: 0 5px;
+  display: inline-block;
+}
+
+.icons img:hover,
+.ung-dung img:hover {
+  transform: scale(1.1);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  nav.thanh-dieu-huong {
+    padding: 15px;
+  }
+
+  .tieu-de h1 {
+    font-size: 24px;
+  }
+
+  .lien-ket a {
+    margin-left: 10px;
+    padding: 5px 8px;
+  }
+
+  .tours-hero {
+    height: 200px;
+  }
+
+  .tours-hot,
+  .danh-sach-tour {
+    white-space: normal;
+  }
+
+  .phieu-tour {
+    width: 90%;
+    float: none;
+    display: block;
+    margin: 10px auto;
+    height: auto;
+    padding-bottom: 10px;
+  }
+
+  .danh-sach-tour-hot,
+  .dai-han,
+  .ngan-han {
+    width: 90%;
+    float: none;
+    display: block;
+    margin: 10px auto;
+  }
+
+  .gia-tour {
+    float: none;
+    display: block;
+    position: static;
+    padding-bottom: 0;
+    border-top: none;
+    text-align: center;
+  }
+
+  .gia-tour span,
+  .gia-tour a.dat-ngay,
+  .gia-tour a.xem-chi-tiet {
+    float: none;
+    display: block;
+    margin: 10px auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  .ben-trai,
+  .ben-phai {
+    float: none;
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .noi-dung-phan-cuoi {
+    text-align: center;
+  }
+}

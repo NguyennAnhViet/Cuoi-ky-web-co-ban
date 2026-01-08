@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Quản Trị - Tour V&V</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+    <!-- SIDEBAR -->
+    <aside class="sidebar">
+        <div class="sidebar-header">
+            <h2> Tour V&V</h2>
+            <p>Admin Dashboard</p>
+        </div>
+        <ul class="sidebar-menu">
+            <li><a href="#" class="active" data-section="dashboard"><i>📊</i> <span>Tổng Quan</span></a></li>
+            <li><a href="#" data-section="tours"><i>🗺️</i> <span>Quản lý Tour</span></a></li>
+            <li><a href="#" data-section="bookings"><i>📋</i> <span>Đặt Tour</span></a></li>
+            <li><a href="#" data-section="customers"><i>👥</i> <span>Khách Hàng</span></a></li>
+            <li><a href="#" data-section="payments"><i>💳</i> <span>Thanh Toán</span></a></li>
+            <li><a href="#" data-section="reports"><i>📈</i> <span>Báo Cáo</span></a></li>
+            <li><a href="#" data-section="settings"><i>⚙️</i> <span>Cài Đặt</span></a></li>
+            <li><a href="Dulich.html"><i>🏠</i> <span>Về Trang Chủ</span></a></li>
+            <li><a href="#" onclick="logout()"><i>🚪</i> <span>Đăng Xuất</span></a></li>
+        </ul>
+    </aside>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-content">
+        <!-- HEADER -->
+        <div class="top-header">
+            <h1>Tổng Quan</h1>
+            <div class="user-info">
+                <div class="user-details">
+                    <h3 id="adminName">Admin</h3>
+                    <p id="adminRole">Quản trị viên</p>
+                </div>
+                <div class="user-avatar">A</div>
+            </div>
+        </div>
+
+        <!-- STATISTICS CARDS -->
+        <div class="stats-container">
+            <div class="stat-card blue">
+                <div class="stat-info">
+                    <h3>Tổng Tour</h3>
+                    <p id="totalTours">0</p>
+                </div>
+                <div class="stat-icon">🗺️</div>
+            </div>
+            <div class="stat-card green">
+                <div class="stat-info">
+                    <h3>Đặt Tour Hôm Nay</h3>
+                    <p id="todayBookings">0</p>
+                </div>
+                <div class="stat-icon">📋</div>
+            </div>
+            <div class="stat-card orange">
+                <div class="stat-info">
+                    <h3>Khách Hàng</h3>
+                    <p id="totalCustomers">0</p>
+                </div>
+                <div class="stat-icon">👥</div>
+            </div>
+            <div class="stat-card red">
+                <div class="stat-info">
+                    <h3>Doanh Thu Tháng</h3>    
+                    <p id="monthlyRevenue">0M</p>
+                </div>
+                <div class="stat-icon">💰</div>
+            </div>
+        </div>
+
+        <!-- DASHBOARD SECTION -->
+        <div id="section-dashboard" class="content-section">
+            <div class="section-header">
+                <h2>📊 Tổng Quan Hệ Thống</h2>
+            </div>
+            <div class="chart-container">
+                <p style="color: #7f8c8d;">📈 Biểu đồ thống kê sẽ được hiển thị ở đây</p>
+            </div>
+        </div>
+
+        <!-- TOURS SECTION -->
+        <div id="section-tours" class="content-section hidden">
+            <div class="section-header">
+                <h2>🗺️ Quản Lý Tour</h2>
+                <button class="btn btn-primary" onclick="openModal('addTourModal')">+ Thêm Tour Mới</button>
+            </div>
+            <div class="table-container">
+                <table id="toursTable">
+                    <thead>
+                        <tr>
+                            <th>Mã Tour</th>
+                            <th>Tên Tour</th>
+                            <th>Điểm Đến</th>
+                            <th>Thời Gian</th>
+                            <th>Giá</th>
+                            <th>Trạng Thái</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Data will be loaded here -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- BOOKINGS SECTION -->
+        <div id="section-bookings" class="content-section hidden">
+            <div class="section-header">
+                <h2>📋 Quản Lý Đặt Tour</h2>
+                <button class="btn btn-success" onclick="exportBookings()">📥 Xuất Excel</button>
+            </div>
+            <div class="table-container">
+                <table id="bookingsTable">
+                    <thead>
+                        <tr>
+                            <th>Mã Đơn</th>
+                            <th>Khách Hàng</th>
+                            <th>Tour</th>
+                            <th>Ngày Đặt</th>
+                            <th>Tổng Tiền</th>
+                            <th>Trạng Thái</th>
+                            <th>Thao Tác</th>
+                        </tr>
+                    </thead>
+                    <tbody id="bookingsTableBody">
+                        <!-- Data will be loaded from localStorage -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- CUSTOMERS SECTION -->
+        <div id="section-customers" class="content-section hidden">
+            <div class="section-header">
+                <h2>👥 Quản Lý Khách Hàng</h2>
+                <button class="btn btn-primary" onclick="openModal('addCustomerModal')">+ Thêm Khách Hàng</button>
+            </div>
+        </div>
+
+        <!-- PAYMENTS SECTION -->
+        <div id="section-payments" class="content-section hidden">
+            <div class="section-header">
+                <h2>💳 Quản Lý Thanh Toán</h2>
+            </div>
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Mã Thanh Toán</th>
+                            <th>Mã Đơn Hàng</th>
+                            <th>Khách Hàng</th>
+                            <th>Số Tiền</th>
+                            <th>Phương Thức</th>
+                            <th>Trạng Thái</th>
+                            <th>Ngày</th>
+                        </tr>
+                    </thead>
+                    <tbody id="paymentsTableBody">
+                        <!-- Data will be loaded from localStorage -->
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- REPORTS SECTION -->
+        <div id="section-reports" class="content-section hidden">
+            <div class="section-header">
+                <h2>📈 Báo Cáo & Thống Kê</h2>
+            </div>
+            <div class="chart-container">
+                <p style="color: #7f8c8d;">📊 Báo cáo chi tiết và biểu đồ phân tích</p>
+            </div>
+        </div>
+
+        <!-- SETTINGS SECTION -->
+        <div id="section-settings" class="content-section hidden">
+            <div class="section-header">
+                <h2>⚙️ Cài Đặt Hệ Thống</h2>
+            </div>
+            <div class="form-group">
+                <label>Tên Website</label>
+                <input type="text" value="Tour V&V">
+            </div>
+            <div class="form-group">
+                <label>Email Liên Hệ</label>
+                <input type="email" value="tour@gmail.com">
+            </div>
+            <div class="form-group">
+                <label>Số Điện Thoại</label>
+                <input type="tel" value="0376399499">
+            </div>
+            <button class="btn btn-success">💾 Lưu Cài Đặt</button>
+        </div>
+    </main>
+
+    <!-- ADD TOUR MODAL -->
+    <div id="addTourModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>➕ Thêm Tour Mới</h2>
+                <span class="close-modal" onclick="closeModal('addTourModal')">&times;</span>
+            </div>
+            <form id="addTourForm">
+                <div class="form-group">
+                    <label>Tên Tour *</label>
+                    <input type="text" id="tourName" required placeholder="Ví dụ: Hà Nội - Sapa - Hạ Long">
+                </div>
+                <div class="form-group">
+                    <label>Điểm Đến *</label>
+                    <select id="tourDestination" required>
+                        <option value="">Chọn điểm đến</option>
+                        <option value="Hà Nội">Hà Nội</option>
+                        <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                        <option value="Đà Nẵng">Đà Nẵng</option>
+                        <option value="Nha Trang">Nha Trang</option>
+                        <option value="Phú Quốc">Phú Quốc</option>
+                        <option value="Đà Lạt">Đà Lạt</option>
+                        <option value="Đà Lạt">Quy Nhơn</option>
+                        <option value="Đà Lạt">Đồng Tháp</option>
+                        <option value="Đà Lạt">Ninh Bình</option>
+                        <option value="Đà Lạt">Cần Thơ</option>
+                        <option value="Đà Lạt">Phú Quý</option>
+                        <option value="Đà Lạt">Phan Thiết</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Thời Gian *</label>
+                    <input type="text" id="tourDuration" placeholder="Ví dụ: 3N2Đ" required>
+                </div>
+                <div class="form-group">
+                    <label>Giá (VNĐ) *</label>
+                    <input type="number" id="tourPrice" required placeholder="Ví dụ: 5000000">
+                </div>
+                <div class="form-group">
+                    <label>Mô Tả</label>
+                    <textarea id="tourDescription" rows="4" placeholder="Mô tả chi tiết về tour..."></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">✅ Thêm Tour</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- ADD CUSTOMER MODAL -->
+    <div id="addCustomerModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>➕ Thêm Khách Hàng Mới</h2>
+                <span class="close-modal" onclick="closeModal('addCustomerModal')">&times;</span>
+            </div>
+            <form id="addCustomerForm">
+                <div class="form-group">
+                    <label>Họ Tên *</label>
+                    <input type="text" id="customerName" required placeholder="Nhập họ tên khách hàng">
+                </div>
+                <div class="form-group">
+                    <label>Email *</label>
+                    <input type="email" id="customerEmail" required placeholder="example@gmail.com">
+                </div>
+                <div class="form-group">
+                    <label>Số Điện Thoại *</label>
+                    <input type="tel" id="customerPhone" required placeholder="0901234567" pattern="[0-9]{10,11}">
+                </div>
+                <div class="form-group">
+                    <label>Địa Chỉ</label>
+                    <textarea id="customerAddress" rows="3" placeholder="Nhập địa chỉ (không bắt buộc)"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary" style="width: 100%;">✅ Thêm Khách Hàng</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="database/dataManager.js"></script>
+    <script src="admin.js"></script>
+    <script src="script.js"></script>
+    
+</body>
+</html>

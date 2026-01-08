@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tours - V&V Tour</title>
+    <link rel="stylesheet" href="tour.css">
+    <link rel="stylesheet" href="Dulich.css">
+</head>
+
+<body>
+    <nav class="thanh-dieu-huong">
+        <div class="tieu-de">
+            <span class="logo-text">Tour V&V</span>
+            <img src="assets/Logo1.png" alt="Tour V&V Logo" class="logo-img" />
+        </div>
+        <div class="lien-ket">
+            <a href="Dulich.html" id="btnTrangChu">Trang Chủ</a>
+            <a href="gioithieu.html" id="btnGioiThieu">Giới Thiệu</a>
+            <a href="tour.html" id="btnTours" class="active">Tours</a>
+            <a href="tourdadat.html" id="btnDaDat">Tour đã đặt</a>
+
+            <div class="tai-khoan">
+                <a href="#" class="nut-tai-khoan" onclick="moDropdownTaiKhoan(event)">Tài khoản ⏷</a>
+                <div id="menuTaiKhoan" class="menu-tai-khoan">
+                    <button onclick="hienFormDangKy()">Đăng ký</button>
+                    <p>Đã có tài khoản? <a href="#" onclick="hienFormDangNhap()">Đăng nhập ngay</a></p>
+                </div>
+            </div>
+
+            <!-- Form Đăng ký -->
+            <div class="form-dang-ky" id="formDangKy" style="display: none;">
+                <span class="close-btn" onclick="dongForm()">×</span>
+                <h2>Đăng ký</h2>
+                <label for="hoTen">Họ tên *</label>
+                <input type="text" id="hoTen_dk" placeholder="Ví dụ: Nguyễn Văn A">
+
+                <label for="lienLac">Email / Số điện thoại *</label>
+                <input type="text" id="lienLac" placeholder="0901234567 hoặc email@gmail.com">
+
+                <label for="matKhau1">Mật khẩu *</label>
+                <input type="password" id="matKhau1" placeholder="Nhập mật khẩu">
+
+                <label for="matKhau2">Nhập lại mật khẩu *</label>
+                <input type="password" id="matKhau2" placeholder="Nhập lại mật khẩu">
+
+                <button onclick="xuLyDangKy()">Đăng ký</button>
+            </div>
+
+            <!-- Form Đăng nhập -->
+            <div class="form-dang-ky" id="formDangNhap" style="display: none;">
+                <span class="close-btn" onclick="dongForm()">×</span>
+                <h2>Đăng nhập</h2>
+                <label for="tenDangNhap">Tên đăng nhập</label>
+                <input type="text" id="tenDangNhap_dn" placeholder="Email hoặc số điện thoại">
+
+                <label for="matKhau">Mật khẩu</label>
+                <input type="password" id="matKhau_dn" placeholder="Mật khẩu">
+
+                <button onclick="xuLyDangNhap()">Đăng nhập</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <div id="tours-section">
+        <div class="tours-hero">
+            <div class="slideshow">
+                <img src="assets/bienpq.jpg" alt="Bãi biển Phú Quốc" class="slide active">
+                <img src="assets/DaLat.jpg" alt="Đà Lạt" class="slide">
+                <img src="assets/quangbinh.jpg" alt="Quảng Bình" class="slide">
+                <img src="assets/Hoian.jpg" alt="Văn Hóa Hội An" class="slide">
+            </div>
+        </div>
+    </div>
+
+    <div class="danh-sach-tour">
+        <div class="dai-han">
+            <h2>Tour Hot Trong Tháng</h2>
+            <h3>"Đi cùng độ hot,gắn liền ưu đãi"</h3>
+        </div>
+        <div class="phieu-tour">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=c...500&q=60"
+                alt="Phú Quốc">
+            <div class="thong-tin-tour">
+                <h3>PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC </h3>
+                <p>Biển xanh, cát trắng, nắng vàng trong 5 ngày</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày</span><br>
+                    <span>🆔 Mã Tour: <strong>T004</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC (Khởi hành mùa ngáy)"
+                        data-gia-tour="4990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC (Khởi hành mùa ngáy)" data-gia-tour="4990000"
+                        data-mo-ta="Thưởng thức biển xanh cát trắng tại Phú Quốc trong 5 ngày, bao gồm các điểm tham quan nổi bật."
+                        data-lich-trinh="Ngày 1: Khởi hành; Ngày 2: Biển Phú Quốc; Ngày 3: Tham quan; Ngày 4: Nghỉ ngơi; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="phieu-tour">
+            <img src="assets/DaLat.jpg" alt="Đà Lạt - Nha Trang">
+            <div class="thong-tin-tour">
+                <h3>TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN</h3>
+                <p>Khám phá thành phố ngàn hoa, biển xanh cát trắng và hái nho tại vườn</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T006</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>5,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN (VÀO CUỐI THÁNG 7)"
+                        data-gia-tour="5990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN (VÀO CUỐI THÁNG 7)" data-gia-tour="5990000"
+                        data-mo-ta="Trải nghiệm Đà Lạt với hoa và khí hậu mát mẻ, Nha Trang với biển xanh, và Ninh Thuận với vườn nho đặc trưng trong hành trình cuối tháng 7."
+                        data-lich-trinh="Ngày 1: Đà Lạt; Ngày 2: Nha Trang; Ngày 3: Ninh Thuận; Ngày 4: Về lại">Xem chi
+                        tiết</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="phieu-tour">
+            <img src="assets/QuyNhon.webp" alt="Tour Quy Nhơn - Phú Yên">
+            <div class="thong-tin-tour">
+                <h3>DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN </h3>
+                <p>Quy Nhơn – Phú Yên – Mù Điền – Gành Đá Dĩa – Kỳ Co – Eo Gió</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T002</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,599,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN"
+                        data-gia-tour="4599000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet" data-ten-tour="DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN"
+                        data-gia-tour="4599000"
+                        data-mo-ta="Khám phá Quy Nhơn và Phú Yên với Gành Đá Dĩa, Kỳ Co và Eo Gió trong mùa thu tuyệt đẹp."
+                        data-lich-trinh="Ngày 1: Khởi hành - Quy Nhơn; Ngày 2: Phú Yên; Ngày 3: Gành Đá Dĩa; Ngày 4: Kỳ Co - Eo Gió; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        
+        <div class="phieu-tour">
+            <img src="assets/DaNang.webp" alt="Đà Nẵng - Hội An">
+            <div class="thong-tin-tour">
+                <h3>TOUR CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ </h3>
+                <p>Biển xanh Mỹ Khê, cầu Rồng rực rỡ, nắng vàng trên Bà Nà trong 5 ngày</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T005</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,490,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay"
+                        data-ten-tour="TOUR ĐÀ NẴNG – CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ"
+                        data-gia-tour="4490000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR ĐÀ NẴNG – CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ"
+                        data-gia-tour="4490000"
+                        data-mo-ta="Khám phá Đà Nẵng với biển Mỹ Khê, Hội An cổ kính và Bà Nà Hills trong 5 ngày 4 đêm."
+                        data-lich-trinh="Ngày 1: Đà Nẵng; Ngày 2: Cu Lao Chàm; Ngày 3: Hội An; Ngày 4: Bà Nà; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        
+    </div>  
+
+    <div class="danh-sach-tour">
+        <div class="dai-han">
+            <h2>Danh Sách Tour Dài Hạn</h2>
+            <h3>"Thoải sức khám phá ,không lo về giá"</h3>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/HaNoi.jpg" alt="Tour Hà Nội - Sapa">
+            <div class="thong-tin-tour">
+                <h3>TOUR DU LỊCH HÀ NỘI – SAPA – Hạ LONG – NINH BÌNH 5N4Đ</h3>
+                <p>Đỉnh Fansipan – Hạ Long – Ninh Bình 5N4Đ</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T001</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>5,250,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="TOUR DU LỊCH HÀ NỘI – SAPA – Hạ LONG – NINH BÌNH 5N4Đ"
+                        data-gia-tour="5250000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR DU LỊCH HÀ NỘI – SAPA – Hạ LONG – NINH BÌNH 5N4Đ" data-gia-tour="5250000"
+                        data-mo-ta="Khám phá đỉnh Fansipan, vịnh Hạ Long tuyệt đẹp và cố đô Ninh Bình trong hành trình 5 ngày 4 đêm. Bao gồm vé tham quan, ăn uống và hướng dẫn viên chuyên nghiệp."
+                        data-lich-trinh="Ngày 1: Hà Nội - Sapa; Ngày 2: Fansipan; Ngày 3: Hạ Long; Ngày 4: Ninh Bình; Ngày 5: Về Hà Nội">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/QuyNhon.webp" alt="Tour Quy Nhơn - Phú Yên">
+            <div class="thong-tin-tour">
+                <h3>DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN </h3>
+                <p>Quy Nhơn – Phú Yên – Mù Điền – Gành Đá Dĩa – Kỳ Co – Eo Gió</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T002</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,599,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN"
+                        data-gia-tour="4599000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet" data-ten-tour="DU LỊCH MÙA THU – TOUR DU LỊCH QUY NHƠN – PHÚ YÊN"
+                        data-gia-tour="4599000"
+                        data-mo-ta="Khám phá Quy Nhơn và Phú Yên với Gành Đá Dĩa, Kỳ Co và Eo Gió trong mùa thu tuyệt đẹp."
+                        data-lich-trinh="Ngày 1: Khởi hành - Quy Nhơn; Ngày 2: Phú Yên; Ngày 3: Gành Đá Dĩa; Ngày 4: Kỳ Co - Eo Gió; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/SaiGon.jpg" alt="Tour Miền Nam">
+            <div class="thong-tin-tour">
+                <h3>DU LỊCH MIỀN NAM, Tây Ninh – SÀI GÒN – VŨNG TÀU 5N4Đ</h3>
+                <p>Miền Nam – Tây Ninh – Sài Gòn – Vũng Tàu 4 Ngày</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T003</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>6,590,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="DU LỊCH MIỀN NAM, Tây Ninh – SÀI GÒN – VŨNG TÀU 5N4Đ"
+                        data-gia-tour="6590000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="DU LỊCH MIỀN NAM, Tây Ninh – SÀI GÒN – VŨNG TÀU 5N4Đ" data-gia-tour="6590000"
+                        data-mo-ta="Khám phá miền Nam với Tây Ninh, Sài Gòn nhộn nhịp và Vũng Tàu biển đẹp trong 5 ngày 4 đêm."
+                        data-lich-trinh="Ngày 1: Tây Ninh; Ngày 2: Sài Gòn; Ngày 3: Vũng Tàu; Ngày 4: Vũng Tàu; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-4.0.3&auto=format&fit=c...500&q=60"
+                alt="Phú Quốc">
+            <div class="thong-tin-tour">
+                <h3>PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC </h3>
+                <p>Biển xanh, cát trắng, nắng vàng trong 5 ngày</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày</span><br>
+                    <span>🆔 Mã Tour: <strong>T004</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC (Khởi hành mùa ngáy)"
+                        data-gia-tour="4990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="PHÚ QUỐC – BIÊN BẢO 5N – PHÚ QUỐC (Khởi hành mùa ngáy)" data-gia-tour="4990000"
+                        data-mo-ta="Thưởng thức biển xanh cát trắng tại Phú Quốc trong 5 ngày, bao gồm các điểm tham quan nổi bật."
+                        data-lich-trinh="Ngày 1: Khởi hành; Ngày 2: Biển Phú Quốc; Ngày 3: Tham quan; Ngày 4: Nghỉ ngơi; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/DaNang.webp" alt="Đà Nẵng - Hội An">
+            <div class="thong-tin-tour">
+                <h3>TOUR CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ </h3>
+                <p>Biển xanh Mỹ Khê, cầu Rồng rực rỡ, nắng vàng trên Bà Nà trong 5 ngày</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T005</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>4,490,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay"
+                        data-ten-tour="TOUR ĐÀ NẴNG – CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ"
+                        data-gia-tour="4490000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR ĐÀ NẴNG – CU LAO CHÀM – HỘI AN – BÀ NÀ HILLHILL TRONG 5N4Đ"
+                        data-gia-tour="4490000"
+                        data-mo-ta="Khám phá Đà Nẵng với biển Mỹ Khê, Hội An cổ kính và Bà Nà Hills trong 5 ngày 4 đêm."
+                        data-lich-trinh="Ngày 1: Đà Nẵng; Ngày 2: Cu Lao Chàm; Ngày 3: Hội An; Ngày 4: Bà Nà; Ngày 5: Về lại">Xem
+                        chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/DaLat.jpg" alt="Đà Lạt - Nha Trang">
+            <div class="thong-tin-tour">
+                <h3>TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN</h3>
+                <p>Khám phá thành phố ngàn hoa, biển xanh cát trắng và hái nho tại vườn</p>
+                <div class="tieu-de-tour">
+                    <span>★ 5 ngày 4 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T006</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>5,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN (VÀO CUỐI THÁNG 7)"
+                        data-gia-tour="5990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR ĐÀ LẠT – NHA TRANG – NINH THUẬN (VÀO CUỐI THÁNG 7)" data-gia-tour="5990000"
+                        data-mo-ta="Trải nghiệm Đà Lạt với hoa và khí hậu mát mẻ, Nha Trang với biển xanh, và Ninh Thuận với vườn nho đặc trưng trong hành trình cuối tháng 7."
+                        data-lich-trinh="Ngày 1: Đà Lạt; Ngày 2: Nha Trang; Ngày 3: Ninh Thuận; Ngày 4: Về lại">Xem chi
+                        tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="danh-sach-tour">
+        <div class="ngan-han">
+            <h2>Danh Sách Tour Ngắn Hạn</h2>
+            <h3>"Trải nghiệm hành trình ngắn cùng gia đình"</h3>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/dongthap.jpg" alt="Tour Long An - Đồng Tháp - Châu Đốc">
+            <div class="thong-tin-tour">
+                <h3>TOUR DU LỊCH MIỀN TÂY LONG AN – ĐỒNG THÁP – CHÂU ĐỐC 3N2Đ</h3>
+                <p>Tour Du Lịch Miền Tây Mùa Nước Nổi 3N2Đ</p>
+                <div class="tieu-de-tour">
+                    <span>★ 3 ngày 2 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T011</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>2,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay"
+                        data-ten-tour="TOUR DU LỊCH MIỀN TÂY LONG AN – ĐỒNG THÁP – CHÂU ĐỐC 3N2Đ"
+                        data-gia-tour="2990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR DU LỊCH MIỀN TÂY LONG AN – ĐỒNG THÁP – CHÂU ĐỐC 3N2Đ"
+                        data-gia-tour="2990000"
+                        data-mo-ta="Khám phá mùa nước nổi miền Tây với Long An, Đồng Tháp và Châu Đốc trong 3 ngày 2 đêm."
+                        data-lich-trinh="Ngày 1: Long An; Ngày 2: Đồng Tháp - Châu Đốc; Ngày 3: Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/cantho.webp" alt="Tour Cần Thơ-Cà Mau-Bạc Liêu">
+            <div class="thong-tin-tour">
+                <h3>TOUR 4 TỈNH MIỀN TÂY CẦN THƠ – CÀ MAU – BẠC LIÊU 2N1Đ </h3>
+                <p>Chúng Ta Sẽ Khám Thú CHỢ NỔI CÁI RĂNG – Đất Mũi – Thánh đường Tắc Sậy</p>
+                <div class="tieu-de-tour">
+                    <span>★ 2 ngày 1 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T012</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>2,290,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="TOUR 4 TỈNH MIỀN TÂY CẦN THƠ – CÀ MAU – BẠC LIÊU 2N1Đ"
+                        data-gia-tour="2290000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR 4 TỈNH MIỀN TÂY CẦN THƠ – CÀ MAU – BẠC LIÊU 2N1Đ" data-gia-tour="2290000"
+                        data-mo-ta="Hành trình 2 ngày 1 đêm khám phá 4 tỉnh miền Tây với chợ nổi Cái Răng và Đất Mũi."
+                        data-lich-trinh="Ngày 1: Cần Thơ - Chợ Nổi; Ngày 2: Cà Mau - Bạc Liêu - Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/doclet.jpg" alt="Tour Biển">
+            <div class="thong-tin-tour">
+                <h3>TOUR BÃI BIỂN DỐC LẾT – HỒ ĐÁ BÀNG – ĐẢO ĐIỆP SƠN 2N1Đ (Khánh Hòa)</h3>
+                <p>Trải Nghiệm Con Đường Đảo Phật Nằm Và Camping Hệ Sinh Thái Hồ Đá Bàng</p>
+                <div class="tieu-de-tour">
+                    <span>★ 2 ngày 1 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T013</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>1,990,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay"
+                        data-ten-tour="TOUR BÃI BIỂN DỐC LẾT – HỒ ĐÁ BÀNG – ĐẢO ĐIỆP SƠN 2N1Đ (Khánh Hòa)"
+                        data-gia-tour="1990000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet"
+                        data-ten-tour="TOUR BÃI BIỂN DỐC LẾT – HỒ ĐÁ BÀNG – ĐẢO ĐIỆP SƠN 2N1Đ (Khánh Hòa)"
+                        data-gia-tour="1990000"
+                        data-mo-ta="Trải nghiệm bãi biển Dốc Lết, hồ Đá Bàng và đảo Điệp Sơn trong 2 ngày 1 đêm tại Khánh Hòa."
+                        data-lich-trinh="Ngày 1: Khởi hành - Dốc Lết; Ngày 2: Điệp Sơn - Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/quangbinh.jpg" alt="Quảng Bình">
+            <div class="thong-tin-tour">
+                <h3>KHÁM PHÁ QUẢNG BÌNH CÙNG VỚI CÁC ĐỊA DANH NỔI TIẾNG TRONG 2N1Đ</h3>
+                <p>Khám Phá Động Phong Nha/Động Thiên Đường - Sông Chày - Hang Tối</p>
+                <div class="tieu-de-tour">
+                    <span>★ 2 ngày 1 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T014</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>2,590,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="KHÁM PHÁ QUẢNG BÌNH 2N1Đ" data-gia-tour="2590000">Đặt
+                        Ngay</a>
+                    <a href="#" class="xem-chi-tiet" data-ten-tour="KHÁM PHÁ QUẢNG BÌNH 2N1Đ" data-gia-tour="2590000"
+                        data-mo-ta="Khám phá Quảng Bình với động Phong Nha, động Thiên Đường, sông Chày và hang Tối trong 2 ngày 1 đêm."
+                        data-lich-trinh="Ngày 1: Phong Nha; Ngày 2: Thiên Đường - Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/hon-tranh-phu-quy.jpg" alt="PHÚ QUÝ">
+            <div class="thong-tin-tour">
+                <h3>Tour Du Lịch Phú Quý: KHÁM PHÁ TRỌN VẸN VẺ ĐẸP VÀ TINH HOA CỦA ĐẢO 2N1Đ </h3>
+                <p>Gành Hang - Phong Điện - Núi Cao Cát - Vịnh Triều Dương</p>
+                <div class="tieu-de-tour">
+                    <span>★ 2 ngày 2 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T015</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>2,490,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="Tour Du Lịch Phú Quý 2N2Đ" data-gia-tour="2490000">Đặt
+                        Ngay</a>
+                    <a href="#" class="xem-chi-tiet" data-ten-tour="Tour Du Lịch Phú Quý 2N2Đ" data-gia-tour="2490000"
+                        data-mo-ta="Hành trình 2 ngày 2 đêm khám phá đảo Phú Quý với các địa điểm nổi tiếng như Gành Hang và Vịnh Triều Dương."
+                        data-lich-trinh="Ngày 1: Khởi hành - Gành Hang; Ngày 2: Phong Điện - Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+        <div class="phieu-tour">
+            <img src="assets/phanthiet.webp" alt="HCM-PHAN THIẾT">
+            <div class="thong-tin-tour">
+                <h3>TOUR PHAN THIẾT BIỂN GỌI: TỪ THÀNH PHỐ HỒ CHÍ MINH ĐẾN THIÊN ĐƯỜNG BIỂN 2N1Đ</h3>
+                <p>Tour Phan Thiết 2N1Đ: HCM - Phan Thiết - Mũi Né - Bikini Beach - Bàu Trắng</p>
+                <div class="tieu-de-tour">
+                    <span>★ 2 ngày 1 đêm</span><br>
+                    <span>🆔 Mã Tour: <strong>T016</strong></span>
+                </div>
+                <div class="gia-tour">
+                    <span>2,790,000 VNĐ/người</span>
+                    <a href="#" class="dat-ngay" data-ten-tour="TOUR HỒ CHÍ MINH - PHAN THIẾT 2N1Đ"
+                        data-gia-tour="2790000">Đặt Ngay</a>
+                    <a href="#" class="xem-chi-tiet" data-ten-tour="TOUR HỒ CHÍ MINH - PHAN THIẾT 2N1Đ"
+                        data-gia-tour="2790000"
+                        data-mo-ta="Khám phá Phan Thiết với Mũi Né, Bikini Beach và Bàu Trắng trong 2 ngày 1 đêm từ Hồ Chí Minh."
+                        data-lich-trinh="Ngày 1: HCM - Phan Thiết; Ngày 2: Mũi Né - Về lại">Xem chi tiết</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <div id="thanhToan" class="hop-thoai" style="display:none;">
+        <div class="noi-dung-hop-thoai">
+            <span class="dong-lai">×</span>
+            <h2>Thông tin đặt tour</h2>
+            <form id="formThanhToan">
+                <label for="hoTen">Họ và Tên:</label>
+                <input type="text" id="hoTen">
+
+                <label for="email">Email:</label>
+                <input type="email" id="email">
+
+                <label for="soDienThoai">Số Điện Thoại:</label>
+                <input type="tel" id="soDienThoai" pattern="[0-9]{10}">
+
+                <label for="phuongThucThanhToan">Phương Thức Thanh Toán:</label>
+                <select id="phuongThucThanhToan">
+                    <option value="">Chọn phương thức</option>
+                    <option value="the_tin_dung">Thẻ Tín Dụng</option>
+                    <option value="chuyen_khoan">Chuyển Khoản Ngân Hàng</option>
+                    <option value="thanh_toan_tai_dai_li">Thanh Toán Tại Đại Lí</option>
+                </select>
+
+                <label for="maDonHang">Mã Đơn Hàng:</label>
+                <input type="text" id="maDonHang" readonly>
+
+                <label for="maThanhToan">Mã Thanh Toán:</label>
+                <input type="text" id="maThanhToan" readonly>
+                <p id="thongTinTour"></p>
+                <button type="submit" id="xacNhanThanhToan">Xác Nhận Đặt Tour</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="phan-cuoi">
+        <div class="noi-dung-phan-cuoi">
+            <div class="ben-trai">
+                <p>Số Điện Thoại: 0376399499-0376789789</p>
+                <p id="current-time">Thời gian: Đang tải...</p>
+                <p>📍Địa Chỉ: 25 Lê Ngã, Phường Phú Trung, Quận Tân Phú, Thành Phố Hồ Chí Minh</p>
+                <p>📧 <a href="mailto:tour@gmail.com">tour@gmail.com</a></p>
+                <div class="icons">
+                    <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="assets/ic_zalo.svg" alt="Zalo"></a>
+                </div>
+            </div>
+            <div class="ben-phai">
+                <p>Bấm vào để tải ứng dụng Tour V&V</p>
+                <div class="ung-dung">
+                    <a href="#"><img src="assets/App store.png" alt="App Store"></a>
+                    <a href="#"><img src="assets/google-play.png" alt="Google Play"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal xem chi tiết -->
+    <div id="chiTietTour" class="hop-thoai" style="display: none;">
+        <div class="noi-dung-hop-thoai">
+            <span class="dong-lai">×</span>
+            <h2>Thông Tin Chi Tiết Tour</h2>
+            <p><strong>Tên Tour:</strong> <span id="chiTietTenTour"></span></p>
+            <p><strong>Giá:</strong> <span id="chiTietGiaTour"></span></p>
+            <p><strong>Mô tả:</strong> <span id="chiTietMoTa"></span></p>
+            <p><strong>Lịch trình:</strong> <span id="chiTietLichTrinh"></span></p>
+            <button id="dongModalChiTiet">Đóng</button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+
+</html>

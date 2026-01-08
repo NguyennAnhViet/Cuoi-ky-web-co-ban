@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Danh sách tour đã đặt</title>
+    <link rel="stylesheet" href="Dulich.css">
+
+</head>
+
+<body>
+
+    <nav class="thanh-dieu-huong">
+        <div class="tieu-de">
+            <span class="logo-text">Tour V&V</span>
+            <img src="assets/Logo1.png" alt="Tour V&V Logo" class="logo-img" />
+        </div>
+        <div class="lien-ket">
+            <a href="Dulich.html" id="btnTrangChu">Trang Chủ</a>
+            <a href="gioithieu.html" id="btnGioiThieu">Giới Thiệu</a>
+            <a href="tour.html" id="btnTours">Tours</a>
+            <a href="#" id="btnDaDat" class="active">Tour đã đặt</a>
+
+            <div class="tai-khoan">
+                <a hef="#" class="nut-tai-khoan" onclick="moDropdownTaiKhoan(event)">Tài khoản ⏷</a>
+                <div id="menuTaiKhoan" class="menu-tai-khoan">
+                    <button onclick="hienFormDangKy()">Đăng ký</button>
+                    <p>Đã có tài khoản? <a href="#" onclick="hienFormDangNhap()">Đăng nhập ngay</a></p>
+                </div>
+            </div>
+
+            <!-- Form Đăng ký -->
+            <div class="form-dang-ky" id="formDangKy" style="display: none;">
+                <span class="close-btn" onclick="dongForm()">×</span>
+                <h2>Đăng ký</h2>
+                <label for="hoTen">Họ tên *</label>
+                <input type="text" id="hoTen_dk" placeholder="Ví dụ: Nguyễn Văn A">
+
+                <label for="lienLac">Email / Số điện thoại *</label>
+                <input type="text" id="lienLac" placeholder="0901234567 hoặc email@gmail.com">
+
+                <label for="matKhau1">Mật khẩu *</label>
+                <input type="password" id="matKhau1" placeholder="Nhập mật khẩu">
+
+                <label for="matKhau2">Nhập lại mật khẩu *</label>
+                <input type="password" id="matKhau2" placeholder="Nhập lại mật khẩu">
+
+                <button onclick="xuLyDangKy()">Đăng ký</button>
+            </div>
+
+            <!-- Form Đăng nhập -->
+            <div class="form-dang-ky" id="formDangNhap" style="display: none;">
+                <span class="close-btn" onclick="dongForm()">×</span>
+                <h2>Đăng nhập</h2>
+                <label for="tenDangNhap">Tên đăng nhập</label>
+                <input type="text" id="tenDangNhap_dn" placeholder="Email hoặc số điện thoại">
+
+                <label for="matKhau">Mật khẩu</label>
+                <input type="password" id="matKhau_dn" placeholder="Mật khẩu">
+
+                <button onclick="xuLyDangNhap()">Đăng nhập</button>
+            </div>
+
+        </div>
+    </nav>
+
+    <h2>📋 Danh sách tour bạn đã đặt</h2>
+    <ul id="danhSachTourUL">
+        <!-- Dữ liệu sẽ hiển thị ở đây -->
+    </ul>
+
+    <footer class="phan-cuoi" id="lien-he-section">
+        <div class="noi-dung-phan-cuoi">
+            <div class="ben-trai">
+                <p><strong>Số Điện Thoại: 0376399499-0376789789</strong> </p>
+                <p id="current-time">Thời gian: Đang tải...</p>
+                <p>📍Địa Chỉ: 25 Lê Ngã, Phường Phú Trung, Quận Tân Phú, Thành Phố Hồ Chí Minh </p>
+                <p><a href="mailto:tour@ivivu.com">📧 tour@gmail.com</a></p>
+                <div class="icons">
+                    <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="assets/ic_zalo.svg" alt="Zalo"></a>
+                    <a href="#"><img src="assets/ic_insta.svg" alt="Instagram"></a>
+                    <a href="#"><img src="assets/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="assets/youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="ben phai">
+                <p>Bấm vào để tải ứng dụng Tour V&V</p>
+                <div class="ung-dung">
+                    <a href="#"><img src="assets/App store.png" alt="App Store"></a>
+                    <a href="#"><img src="assets/google-play.png" alt="Google Play"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="tourdadat.js"></script>
+    <script src="script.js"></script>
+
+    
+</body>
+
+</html>

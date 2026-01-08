@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giới Thiệu - V&V Tour</title>
+    <link rel="stylesheet" href="Dulich.css">
+    <link rel="stylesheet" href="gioithieu.css">
+</head>
+<body>
+    <nav class="thanh-dieu-huong">
+        <div class="tieu-de">
+            <span class="logo-text">Tour V&V</span>  
+            <img src="assets/Logo1.png" alt="Tour V&V Logo" class="logo-img" />           
+        </div>
+        <div class="lien-ket">
+            <a href="Dulich.html" id="btnTrangChu" >Trang Chủ</a>
+            <a href="gioithieu.html" id="btnGioiThieu" class="active">Giới Thiệu</a>
+            <a href="tour.html" id="btnTours">Tours</a>
+            <a href="tourdadat.html" id="btnDaDat">Tour đã đặt</a> 
+            
+            <div class="tai-khoan">
+            <a hef="#" class="nut-tai-khoan" onclick="moDropdownTaiKhoan(event)">Tài khoản ⏷</a>
+            <div id="menuTaiKhoan" class="menu-tai-khoan">
+            <button onclick="hienFormDangKy()">Đăng ký</button>
+            <p>Đã có tài khoản? <a href="#" onclick="hienFormDangNhap()">Đăng nhập ngay</a></p>
+            </div>
+            </div> 
+
+             <!-- Form Đăng ký -->
+        <div class="form-dang-ky" id="formDangKy" style="display: none;">
+            <h2>Đăng ký</h2>
+            <label for="hoTen">Họ tên *</label>
+            <input type="text" id="hoTen_dk" placeholder="Ví dụ: Nguyễn Văn A">
+
+            <label for="lienLac">Email / Số điện thoại *</label>
+            <input type="text" id="lienLac" placeholder="0901234567 hoặc email@gmail.com">
+
+            <label for="matKhau1">Mật khẩu *</label>
+            <input type="password" id="matKhau1" placeholder="Nhập mật khẩu">
+
+            <label for="matKhau2">Nhập lại mật khẩu *</label>
+            <input type="password" id="matKhau2" placeholder="Nhập lại mật khẩu">
+
+            <button onclick="xuLyDangKy()">Đăng ký</button>
+        </div>
+
+<!-- Form Đăng nhập -->
+        <div class="form-dang-ky" id="formDangNhap" style="display: none;">
+            <h2>Đăng nhập</h2>
+            <label for="tenDangNhap">Tên đăng nhập</label>
+            <input type="text" id="tenDangNhap_dn" placeholder="Email hoặc số điện thoại">
+
+            <label for="matKhau">Mật khẩu</label>
+            <input type="password" id="matKhau_dn" placeholder="Mật khẩu">
+
+            <button onclick="xuLyDangNhap()">Đăng nhập</button> 
+        </div>
+ 
+        </div>
+    </nav>
+
+    <div id="gioi-thieu-section">
+        <div class="gioi-thieu-hero">
+            <img src="assets/bannerr.jpg" alt="Phong cảnh Việt Nam với V&V Tour">
+            <div class="gioi-thieu-hero-text">
+                <h1>Khám Phá Việt Nam Cùng V&V Tour</h1>
+                <p>Hành trình đến những điểm đến tuyệt đẹp và văn hóa độc đáo</p>
+            </div>
+        </div>
+        <div class="gioi-thieu-noi-dung">
+            <h2>Về V&V Tour</h2>
+            <p>V&V Tour là công ty du lịch hàng đầu tại Việt Nam, chuyên tổ chức các hành trình khám phá vẻ đẹp thiên nhiên, văn hóa và con người Việt Nam. Với hơn 10 năm kinh nghiệm, chúng tôi tự hào mang đến những trải nghiệm du lịch đáng nhớ, an toàn và chất lượng cao cho khách hàng trong và ngoài nước.</p>
+            <h3>Sứ mệnh của chúng tôi</h3>
+            <p>Chúng tôi cam kết mang lại giá trị tốt nhất cho khách hàng thông qua:</p>
+            <ul>
+                <li>Các tour du lịch đa dạng, từ hành trình ngắn ngày đến dài ngày, phù hợp với mọi đối tượng.</li>
+                <li>Dịch vụ chuyên nghiệp với đội ngũ hướng dẫn viên tận tâm và phương tiện di chuyển hiện đại.</li>
+                <li>Quảng bá văn hóa Việt Nam và bảo tồn thiên nhiên thông qua các tour du lịch bền vững.</li>
+            </ul>
+            <h3>Tại sao chọn V&V Tour?</h3>
+            <ul>
+                <li><strong>Đội ngũ chuyên nghiệp:</strong> Hướng dẫn viên giàu kinh nghiệm, am hiểu văn hóa và lịch sử địa phương.</li>
+                <li><strong>Lịch trình linh hoạt:</strong> Tùy chỉnh hành trình theo nhu cầu riêng của khách hàng.</li>
+                <li><strong>Giá cả hợp lý:</strong> Cam kết giá cạnh tranh với chất lượng dịch vụ vượt trội.</li>
+                <li><strong>Hỗ trợ 24/7:</strong> Đội ngũ hỗ trợ luôn sẵn sàng giải đáp và hỗ trợ khách hàng mọi lúc.</li>
+            </ul>
+            <h3>Lịch sử hình thành</h3>
+            <p>Được thành lập vào năm 2013, V&V Tour bắt đầu từ niềm đam mê mang vẻ đẹp Việt Nam đến gần hơn với du khách. Từ những tour nội địa ban đầu, chúng tôi đã mở rộng ra nhiều điểm đến hấp dẫn, từ các bãi biển tuyệt đẹp ở Phú Quốc, Nha Trang đến những di sản văn hóa ở Huế, Hội An và các vùng núi Tây Bắc hùng vĩ.</p>
+            <p>Hãy cùng V&V Tour khám phá những điểm đến tuyệt vời và tạo nên những kỷ niệm khó quên!</p>
+        </div>
+    </div>
+
+    <footer class="phan-cuoi" id="lien-he-section">
+        <div class="noi-dung-phan-cuoi">
+            <div class="ben-trai">
+                <p><strong>Số Điện Thoại: 0376399499-0376789789</strong></p>
+                <p id="current-time">Thời gian: Đang tải...</p>
+                <p>📍Địa Chỉ: 25 Lê Ngã, Phường Phú Trung, Quận Tân Phú, Thành Phố Hồ Chí Minh</p>
+                <p><a href="mailto:tour@ivivu.com">📧 tour@gmail.com</a></p>
+                <div class="icons">
+                    <a href="#"><img src="assets/facebook.svg" alt="Facebook"></a>
+                    <a href="#"><img src="assets/ic_zalo.svg" alt="Zalo"></a>
+                    <a href="#"><img src="assets/ic_insta.svg" alt="Instagram"></a>
+                    <a href="#"><img src="assets/tiktok.svg" alt="TikTok"></a>
+                    <a href="#"><img src="assets/youtube.svg" alt="YouTube"></a>
+                </div>
+            </div>
+            <div class="ben-phai">
+                <p>Bấm vào để tải ứng dụng Tour V&V</p>
+                <div class="ung-dung">
+                    <a href="#"><img src="assets/App store.png" alt="App Store"></a>
+                    <a href="#"><img src="assets/google-play.png" alt="Google Play"></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+    
+    <script src="script.js"></script>
+    <script src="gioithieu.js"></script>
+</body>
+</html>
